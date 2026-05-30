@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="ta">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>📊 Complete Intraday Trading Guide - Tamil</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Tamil:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Noto Sans Tamil', 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #0a0e27 0%, #1a1f3e 100%);
+            color: #e2e8f0;
+            min-height: 100vh;
+        }
+        .header {
+            background: linear-gradient(135deg, #0f172a, #1e293b);
+            padding: 20px 30px;
+            border-bottom: 2px solid #3b82f6;
+            text-align: center;
+        }
+        .header h1 { font-size: 28px; background: linear-gradient(135deg, #fff, #60a5fa); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .header p { color: #94a3b8; margin-top: 5px; }
+        .nav-tabs {
+            display: flex;
+            flex-wrap: wrap;
+            background: #0f172a;
+            gap: 2px;
+            padding: 10px 20px 0 20px;
+            border-bottom: 1px solid #334155;
+        }
+        .nav-btn {
+            background: #1e293b;
+            border: none;
+            padding: 12px 16px;
+            font-size: 13px;
+            font-weight: 600;
+            color: #94a3b8;
+            cursor: pointer;
+            border-radius: 10px 10px 0 0;
+            transition: all 0.2s;
+            font-family: inherit;
+        }
+        .nav-btn.active { background: #1e293b; color: #3b82f6; border-bottom: 2px solid #3b82f6; }
+        .nav-btn:hover { background: #334155; color: white; }
+        .container { max-width: 1400px; margin: 0 auto; padding: 24px; }
+        .tab-content { display: none; animation: fadeIn 0.3s ease; }
+        .tab-content.active { display: block; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        .card { background: #1e293b; border-radius: 16px; padding: 20px; margin-bottom: 20px; border: 1px solid #334155; }
+        .card-title { font-size: 20px; font-weight: 700; color: #60a5fa; margin-bottom: 15px; border-left: 4px solid #3b82f6; padding-left: 15px; }
+        .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 20px; }
+        .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+        .grid-4 { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
+        .info-box { background: #0f172a; border-radius: 12px; padding: 16px; border-left: 3px solid #10b981; }
+        .psychology-box { background: linear-gradient(135deg, #1e1b4b, #0f172a); border-radius: 12px; padding: 20px; border: 1px solid #8b5cf6; }
+        .psychology-box h3 { color: #a855f7; margin-bottom: 12px; }
+        .badge { display: inline-block; padding: 4px 10px; border-radius: 20px; font-size: 11px; font-weight: 600; }
+        .badge-green { background: rgba(16,185,129,0.2); color: #10b981; }
+        .badge-red { background: rgba(239,68,68,0.2); color: #ef4444; }
+        .badge-yellow { background: rgba(245,158,11,0.2); color: #f59e0b; }
+        .badge-blue { background: rgba(59,130,246,0.2); color: #60a5fa; }
+        .badge-purple { background: rgba(168,85,247,0.2); color: #a855f7; }
+        table { width: 100%; border-collapse: collapse; }
+        th, td { padding: 12px; text-align: left; border-bottom: 1px solid #334155; }
+        th { color: #94a3b8; font-weight: 600; }
+        .calculator { background: #0f172a; padding: 20px; border-radius: 12px; }
+        .calc-input { width: 100%; padding: 10px; background: #1e293b; border: 1px solid #334155; border-radius: 8px; color: white; margin: 8px 0; }
+        .result { background: #10b981; padding: 15px; border-radius: 10px; text-align: center; font-size: 18px; font-weight: bold; margin-top: 15px; }
+        .motivation-text { font-size: 18px; font-style: italic; color: #a855f7; text-align: center; padding: 20px; background: #0f172a; border-radius: 12px; margin-bottom: 20px; border-left: 4px solid #a855f7; }
+        .footer { text-align: center; padding: 20px; color: #64748b; border-top: 1px solid #334155; margin-top: 30px; }
+        @media (max-width: 768px) { .nav-btn { padding: 8px 10px; font-size: 10px; } .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+
+<div class="header">
+    <h1>📊 Complete Intraday Trading Guide</h1>
+    <p>Technical Analysis | Options | Swing | Risk Management | Psychology | Tamil</p>
+</div>
+
+<div class="nav-tabs" id="navTabs">
+    <button class="nav-btn active" data-tab="rules">🚦 Intraday Rules</button>
+    <button class="nav-btn" data-tab="technical">📈 Technical Analysis</button>
+    <button class="nav-btn" data-tab="options">🎯 Options Trading</button>
+    <button class="nav-btn" data-tab="swing">🔄 Swing Trading</button>
+    <button class="nav-btn" data-tab="risk">🛡️ Risk Management</button>
+    <button class="nav-btn" data-tab="sector">🏭 Sector Analysis</button>
+    <button class="nav-btn" data-tab="calendar">📅 Event Calendar</button>
+    <button class="nav-btn" data-tab="calculator">🧮 Calculators</button>
+    <button class="nav-btn" data-tab="psychology">🧠 Trading Psychology</button>
+    <button class="nav-btn" data-tab="checklist">✅ Daily Checklist</button>
+</div>
+
+<div class="container">
+    <!-- Tab 1: Intraday Rules -->
+    <div id="tab-rules" class="tab-content active">
+        <div class="motivation-text">💡 "Plan your trade, Trade your plan. Stop loss is your best friend."</div>
+        <div class="card">
+            <div class="card-title">🚦 Intraday Trading - Golden Rules</div>
+            <div class="grid-2">
+                <div class="info-box"><h3>✅ DO's</h3><ul style="margin-left:20px; margin-top:10px;"><li>Always use Stop Loss</li><li>Trade only 2-3 stocks per day</li><li>Wait 15 minutes after market open</li><li>Follow trend (8/20 EMA)</li><li>Book profits at targets</li><li>Maintain trading journal</li></ul></div>
+                <div class="info-box"><h3>❌ DON'Ts</h3><ul style="margin-left:20px; margin-top:10px;"><li>Never trade without SL</li><li>Don't average losing positions</li><li>Avoid last 30 minutes of trading</li><li>No revenge trading</li><li>Don't overtrade (max 3 trades)</li><li>No FOMO entries</li></ul></div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-title">⏰ Best Time for Intraday Trading</div>
+            <table><thead><tr><th>Time (IST)</th><th>Session</th><th>Action</th></tr></thead><tbody>
+                <tr><td>9:15-9:30 AM</td><td>Opening Volatility</td><td class="badge-red">❌ Avoid Trading</td></tr>
+                <tr><td>9:30-10:30 AM</td><td>Trend Establishment</td><td class="badge-green">✅ Best for Entry</td></tr>
+                <tr><td>10:30-12:00 PM</td><td>Range Bound</td><td class="badge-yellow">⚠️ Scalping Only</td></tr>
+                <tr><td>12:00-1:30 PM</td><td>Lunch Slow</td><td class="badge-yellow">⚠️ Low Volume</td></tr>
+                <tr><td>1:30-2:30 PM</td><td>Second Half Momentum</td><td class="badge-green">✅ Good for Entry</td></tr>
+                <tr><td>2:30-3:15 PM</td><td>Last Hour Volatility</td><td class="badge-red">❌ Risky</td></tr>
+                <tr><td>3:15-3:30 PM</td><td>Settlement</td><td class="badge-red">❌ Strictly Avoid</td></tr>
+            </tbody></table>
+        </div>
+        <div class="card">
+            <div class="card-title">📊 Best Indicators for Intraday</div>
+            <div class="grid-3">
+                <div class="info-box"><strong>📈 VWAP</strong><br>Buy above VWAP, Sell below VWAP</div>
+                <div class="info-box"><strong>📊 5 & 20 EMA</strong><br>Golden Cross = Buy, Death Cross = Sell</div>
+                <div class="info-box"><strong>📉 RSI (5 period)</strong><br>Below 30 = Oversold, Above 70 = Overbought</div>
+                <div class="info-box"><strong>📊 MACD</strong><br>Line crossover signals</div>
+                <div class="info-box"><strong>📊 Volume</strong><br>High volume confirms trend</div>
+                <div class="info-box"><strong>📈 Support/Resistance</strong><br>Key levels for entry/exit</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Tab 2: Technical Analysis -->
+    <div id="tab-technical" class="tab-content">
+        <div class="motivation-text">📈 "Price is the ultimate truth. Volume confirms the lie."</div>
+        <div class="card">
+            <div class="card-title">📈 Candlestick Patterns</div>
+            <div class="grid-2">
+                <div class="info-box"><h3>🟢 Bullish Patterns (BUY)</h3><ul><li>Hammer - Long lower wick</li><li>Bullish Engulfing - Green candle covers red</li><li>Morning Star - 3 candle pattern</li><li>Piercing Pattern</li></ul></div>
+                <div class="info-box"><h3>🔴 Bearish Patterns (SELL)</h3><ul><li>Hanging Man - Long upper wick</li><li>Bearish Engulfing - Red candle covers green</li><li>Evening Star - 3 candle pattern</li><li>Dark Cloud Cover</li></ul></div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-title">📊 Important Indicators</div>
+            <table><thead><tr><th>Indicator</th><th>Setting</th><th>Signal</th></tr></thead><tbody>
+                <tr><td>Moving Average (MA)</td><td>20, 50, 200</td><td>Price > MA = Uptrend, Price < MA = Downtrend</td></tr>
+                <tr><td>RSI</td><td>14 (Daily), 5 (Intraday)</td><td><30 Oversold (Buy), >70 Overbought (Sell)</td></tr>
+                <tr><td>MACD</td><td>(12,26,9)</td><td>Signal line cross = Entry</td></tr>
+                <tr><td>Bollinger Bands</td><td>20,2</td><td>Touch lower band = Buy, upper band = Sell</td></tr>
+                <tr><td>Fibonacci</td><td>38.2%, 50%, 61.8%</td><td>Support/Resistance levels</td></tr>
+            </tbody></table>
+        </div>
+    </div>
+
+    <!-- Tab 3: Options Trading -->
+    <div id="tab-options" class="tab-content">
+        <div class="motivation-text">🎯 "Options trading is about probability, not possibility. Small profits add up."</div>
+        <div class="card">
+            <div class="card-title">🎯 Options Basics</div>
+            <table><thead><tr><th>Term</th><th>Meaning</th><th>Tamil</th></tr></thead><tbody>
+                <tr><td>CE (Call Option)</td><td>Right to BUY</td><td>வாங்க உரிமை</td></tr>
+                <tr><td>PE (Put Option)</td><td>Right to SELL</td><td>விற்க உரிமை</td></tr>
+                <tr><td>Strike Price</td><td>Exercise price</td><td>வேலைநிறுத்த விலை</td></tr>
+                <tr><td>Premium</td><td>Cost of option</td><td>பிரீமியம்</td></tr>
+                <tr><td>Expiry</td><td>Last Thursday of month</td><td>காலாவதி</td></tr>
+            </tbody></table>
+        </div>
+        <div class="card">
+            <div class="card-title">📋 Beginner Strategies</div>
+            <div class="grid-2">
+                <div class="info-box"><strong>Covered Call</strong><br>Own stock + Sell Call = Extra income</div>
+                <div class="info-box"><strong>Protective Put</strong><br>Own stock + Buy Put = Insurance</div>
+                <div class="info-box"><strong>Bull Call Spread</strong><br>Buy CE + Sell higher CE = Limited risk</div>
+                <div class="info-box"><strong>Bear Put Spread</strong><br>Buy PE + Sell lower PE = Limited risk</div>
+            </div>
+            <div class="badge-red badge" style="margin-top:15px;">⚠️ Warning: Beginners should avoid naked options selling</div>
+        </div>
+    </div>
+
+    <!-- Tab 4: Swing Trading -->
+    <div id="tab-swing" class="tab-content">
+        <div class="motivation-text">🔄 "Swing trading is patience with direction. Let your profits run."</div>
+        <div class="card">
+            <div class="card-title">🔄 Swing Trading Setup</div>
+            <div class="grid-2">
+                <div class="info-box"><h3>📈 BUY Setup</h3><ul><li>Stock above 50 MA</li><li>RSI 40-60</li><li>Pullback to support</li><li>Volume decreasing on dip</li><li>Entry: Green candle</li></ul></div>
+                <div class="info-box"><h3>📉 SELL Setup</h3><ul><li>Stock below 50 MA</li><li>RSI 40-60</li><li>Rally to resistance</li><li>Volume decreasing on rally</li><li>Entry: Red candle</li></ul></div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-title">⏱️ Swing Trading Parameters</div>
+            <table><tr><td>Time Frame</td><td>2 days to 2 weeks</td></tr><tr><td>Risk per trade</td><td>1-2% of capital</td></tr><tr><td>Target</td><td>1:2 or 1:3 risk-reward</td></tr><tr><td>Best for</td><td>Part-time traders</td></tr></table>
+        </div>
+    </div>
+
+    <!-- Tab 5: Risk Management -->
+    <div id="tab-risk" class="tab-content">
+        <div class="motivation-text">🛡️ "Preserve your capital. Risk management is more important than finding the next multibagger."</div>
+        <div class="card">
+            <div class="card-title">🛡️ Position Size Calculator</div>
+            <div class="calculator">
+                <label>📊 Account Balance (₹)</label>
+                <input type="number" id="accountBalance" class="calc-input" placeholder="1,00,000" value="100000">
+                <label>⚠️ Risk % per trade</label>
+                <input type="number" id="riskPercent" class="calc-input" placeholder="2" value="2">
+                <label>📉 Entry Price (₹)</label>
+                <input type="number" id="entryPrice" class="calc-input" placeholder="100" value="100">
+                <label>🛑 Stop Loss Price (₹)</label>
+                <input type="number" id="stopLoss" class="calc-input" placeholder="95" value="95">
+                <button onclick="calculatePosition()" style="background:#3b82f6; color:white; padding:10px 20px; border:none; border-radius:8px; cursor:pointer;">Calculate</button>
+                <div id="positionResult" class="result">₹0 Risk | 0 Shares</div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-title">📊 Risk per Trade by Experience</div>
+            <table><tr><th>Experience</th><th>Risk % per trade</th><th>Max Daily Loss</th></tr>
+            <tr><td>Beginner</td><td>0.5% - 1%</td><td>2%</td></tr>
+            <tr><td>Intermediate</td><td>1% - 1.5%</td><td>3%</td></tr>
+            <tr><td>Advanced</td><td>1.5% - 2%</td><td>5%</td></tr>
+            <tr><td>Professional</td><td>2% - 3%</td><td>7%</td></tr>
+            </table>
+        </div>
+    </div>
+
+    <!-- Tab 6: Sector Analysis -->
+    <div id="tab-sector" class="tab-content">
+        <div class="card">
+            <div class="card-title">🏭 Indian Sectors - Trading Characteristics</div>
+            <table><thead><tr><th>Sector</th><th>Index</th><th>Volatility</th><th>Best For</th><th>Key Stocks</th></tr></thead>
+            <tbody><tr><td>Banking</td><td>BANKNIFTY</td><td class="badge-red">Very High</td><td>Intraday/Swing</td><td>HDFC, ICICI, SBI</td></tr>
+            <tr><td>IT</td><td>NIFTYIT</td><td class="badge-yellow">High</td><td>Swing/Position</td><td>TCS, Infy, Wipro</td></tr>
+            <tr><td>Pharma</td><td>NIFTYPHARMA</td><td class="badge-blue">Medium</td><td>Long term</td><td>Sun, Cipla, Dr Reddy</td></tr>
+            <tr><td>Auto</td><td>NIFTYAUTO</td><td class="badge-yellow">Medium</td><td>Swing</td><td>Maruti, Tata Motors</td></tr>
+            <tr><td>FMCG</td><td>NIFTYFMCG</td><td class="badge-blue">Low</td><td>Long term</td><td>HUL, Nestle, ITC</td></tr>
+            <tr><td>Metal</td><td>NIFTYMETAL</td><td class="badge-red">Very High</td><td>Swing</td><td>Tata Steel, Hindalco</td></tr>
+            </tbody></table>
+        </div>
+        <div class="card">
+            <div class="card-title">📅 Seasonal Sector Performance</div>
+            <tr><tr><th>Quarter</th><th>Strong Sectors</th><th>Weak Sectors</th></tr>
+            <tr><td>Jan-Mar</td><td>Auto, Banking</td><td>IT</td></tr>
+            <tr><td>Apr-Jun</td><td>FMCG, Pharma</td><td>Metal</td></tr>
+            <tr><td>Jul-Sep</td><td>IT, Tech</td><td>Auto</td></tr>
+            <tr><td>Oct-Dec</td><td>Banking, Retail</td><td>Pharma</td></tr>
+            </table>
+        </div>
+    </div>
+
+    <!-- Tab 7: Event Calendar -->
+    <div id="tab-calendar" class="tab-content">
+        <div class="card">
+            <div class="card-title">📅 Important Market Events</div>
+            <table><thead><tr><th>Event</th><th>Frequency</th><th>Impact</th><th>Direction</th></tr></thead>
+            <tbody><tr><td>RBI Rate Decision</td><td>Every 2 months</td><td class="badge-red">Very High</td><td>+ve for cut, -ve for hike</td></tr>
+            <tr><td>Union Budget</td><td>Feb 1st yearly</td><td class="badge-red">Very High</td><td>+ve for reforms</td></tr>
+            <tr><td>Inflation Data (CPI)</td><td>12th every month</td><td class="badge-yellow">Medium</td><td>+ve if low</td></tr>
+            <tr><td>IIP Data</td><td>12th every month</td><td class="badge-blue">Medium</td><td>+ve if high</td></tr>
+            <tr><td>US Fed Meeting</td><td>8 times/year</td><td class="badge-red">High</td><td>Follows US markets</td></tr>
+            <tr><td>Quarterly Results</td><td>Quarterly</td><td class="badge-red">High</td><td>Stock specific</td></tr>
+            </tbody></table>
+        </div>
+        <div class="card">
+            <div class="card-title">📊 Results Calendar (Quarterly)</div>
+            <table><tr><th>Quarter</th><th>Months</th><th>Results Month</th></tr>
+            <tr><td>Q1</td><td>April - June</td><td>July</td></tr>
+            <tr><td>Q2</td><td>July - September</td><td>October</td></tr>
+            <tr><td>Q3</td><td>October - December</td><td>January</td></tr>
+            <tr><td>Q4</td><td>January - March</td><td>April/May</td></tr>
+            </table>
+        </div>
+    </div>
+
+    <!-- Tab 8: Calculators -->
+    <div id="tab-calculator" class="tab-content">
+        <div class="card">
+            <div class="card-title">🧮 Risk to Reward Calculator</div>
+            <div class="calculator">
+                <label>📉 Entry Price</label>
+                <input type="number" id="rrEntry" class="calc-input" placeholder="Entry" value="100">
+                <label>🛑 Stop Loss</label>
+                <input type="number" id="rrStop" class="calc-input" placeholder="Stop Loss" value="95">
+                <label>🎯 Target Price</label>
+                <input type="number" id="rrTarget" class="calc-input" placeholder="Target" value="110">
+                <button onclick="calculateRR()" style="background:#3b82f6; color:white; padding:10px 20px; border:none; border-radius:8px; cursor:pointer;">Calculate Risk:Reward</button>
+                <div id="rrResult" class="result">Risk: ₹5 | Reward: ₹10 | Ratio: 1:2</div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-title">🧮 Profit/Loss Calculator</div>
+            <div class="calculator">
+                <label>📊 Quantity</label>
+                <input type="number" id="plQty" class="calc-input" placeholder="Shares" value="100">
+                <label>📈 Buy Price</label>
+                <input type="number" id="plBuy" class="calc-input" placeholder="Buy Price" value="100">
+                <label>📉 Sell Price</label>
+                <input type="number" id="plSell" class="calc-input" placeholder="Sell Price" value="105">
+                <button onclick="calculatePL()" style="background:#3b82f6; color:white; padding:10px 20px; border:none; border-radius:8px; cursor:pointer;">Calculate P&L</button>
+                <div id="plResult" class="result">Profit: ₹500 | 5% Return</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Tab 9: Trading Psychology (Tamil) -->
+    <div id="tab-psychology" class="tab-content">
+        <div class="motivation-text">🧠 "Trading is 20% Strategy, 80% Psychology. Control your mind, control your trades."</div>
+        
+        <div class="card">
+            <div class="card-title">😨 பயத்தை (Fear) எப்படி போக்குவது?</div>
+            <div class="grid-2">
+                <div class="psychology-box"><h3>🚫 பயத்தின் வகைகள்</h3><ul><li>Entry பயம் - Loss ஆகுமோ</li><li>Trade செய்யும் போது - SL hit ஆகுமோ</li><li>Lossக்கு பின் - Confidence குறைதல்</li><li>Profitக்கு பின் - Profit போய்விடுமோ</li></ul></div>
+                <div class="psychology-box"><h3>✅ தீர்வுகள்</h3><ul><li>Small quantity-ல் trade பண்ணுங்கள்</li><li>Stop loss வைத்துவிட்டு screen-ஐ விட்டு விலகுங்கள்</li><li>Loss வந்தால் ஒரு நாள் break</li><li>Target அடித்ததும் exit</li></ul></div>
+            </div>
+            <div class="badge-purple badge" style="margin-top:15px; text-align:center;">💡 "பயம் இருக்கும் வரை நீங்கள் பாதுகாப்பாக இருப்பீர்கள். ஆனால் பயம் உங்களை செயலற்றவராக்க கூடாது."</div>
+        </div>
+
+        <div class="card">
+            <div class="card-title">💰 ஆசையை (Greed) எப்படி அடக்குவது?</div>
+            <div class="grid-2">
+                <div class="psychology-box"><h3>🚫 ஆசையின் வகைகள்</h3><ul><li>More Profit - Target மீறி hold</li><li>Overtrading - அதிக trades</li><li>Leverage - பெரிய loss</li><li>Revenge Trading - Loss-ஐ திருப்ப வாங்குதல்</li></ul></div>
+                <div class="psychology-box"><h3>✅ தீர்வுகள்</h3><ul><li>Target அடித்ததும் exit</li><li>ஒரு நாளைக்கு max 3 trades</li><li>2x-3x leverage-க்கு மேல் வேண்டாம்</li><li>Loss வந்தால் stop, next day</li></ul></div>
+            </div>
+            <div class="badge-yellow badge" style="margin-top:15px; text-align:center;">💡 "கடலில் ஒரு மீன் போதும், ஆனால் ஆசை உங்களை புயலில் சிக்க வைக்கும்."</div>
+        </div>
+
+        <div class="card">
+            <div class="card-title">💪 தன்னம்பிக்கை (Confidence) எப்படி வளர்ப்பது?</div>
+            <div class="grid-3">
+                <div class="psychology-box">📝 <strong>Paper trading</strong><br>1 month virtual-ஆ trade செய்யுங்கள்</div>
+                <div class="psychology-box">💰 <strong>Small capital</strong><br>₹5,000-10,000-லிருந்து ஆரம்பியுங்கள்</div>
+                <div class="psychology-box">📓 <strong>Trading journal</strong><br>ஒவ்வொரு trade-யும் எழுதுங்கள்</div>
+                <div class="psychology-box">📊 <strong>Weekly review</strong><br>சனிக்கிழமை review பண்ணுங்கள்</div>
+                <div class="psychology-box">✅ <strong>Consistency</strong><br>நாள்தோறும் checklist follow</div>
+            </div>
+            <div class="badge-blue badge" style="margin-top:15px; text-align:center;">💡 "100 trades-க்கு பிறகு, நீங்கள் வேறு trader-ஆக இருப்பீர்கள்."</div>
+        </div>
+
+        <div class="card">
+            <div class="card-title">📿 பொதுவான Trading அறிவுரைகள் (Tamil)</div>
+            <div class="grid-2">
+                <div class="psychology-box"><strong>🌅 காலை எழுந்ததும்:</strong><br>"இன்று நான் profit-க்காக trade பண்ணவில்லை. நான் my plan-ஐ follow பண்ணுவேன். Profit தானாக வரும்."</div>
+                <div class="psychology-box"><strong>📊 Trade ஆரம்பிக்கும் முன்:</strong><br>"Stop loss என்பது my insurance. Target என்பது my destination. இந்த இரண்டையும் மீற மாட்டேன்."</div>
+                <div class="psychology-box"><strong>📉 Loss வந்த பின்:</strong><br>"இந்த loss எனக்கு ஒரு பாடம். நான் இதிலிருந்து கற்றுக்கொள்வேன். இன்று trading நிறுத்துகிறேன்."</div>
+                <div class="psychology-box"><strong>📈 Profit வந்த பின்:</strong><br>"இன்றைய profit போதும். Greed என்னை கெடுக்க விடமாட்டேன். Book செய்து, today's winner."</div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-title">📋 10 Golden Rules for Trading Psychology</div>
+            <table><thead><tr><th>#</th><th>Rule</th><th>Tamil Meaning</th></tr></thead>
+            <tbody>
+                <tr><td>1</td><td>Cut losses early</td><td>Loss வந்தால் உடன் exit</td></tr>
+                <tr><td>2</td><td>Let profits run</td><td>Profit-ஐ grow ஆக விடுங்கள்</td></tr>
+                <tr><td>3</td><td>Never revenge trade</td><td>Loss-ஐ திருப்ப திட்டம் வேண்டாம்</td></tr>
+                <tr><td>4</td><td>No FOMO entries</td><td>Miss ஆன trade-ஐ துரத்த வேண்டாம்</td></tr>
+                <tr><td>5</td><td>Risk 1-2% only</td><td>Account-ல் 2% மட்டுமே risk</td></tr>
+                <tr><td>6</td><td>Keep trading journal</td><td>ஒவ்வொரு trade-யும் எழுதுங்கள்</td></tr>
+                <tr><td>7</td><td>Take breaks</td><td>Screen-க்கு விடுமுறை கொடுங்கள்</td></tr>
+                <tr><td>8</td><td>Follow your plan</td><td>Plan-ஐ மீறி trade வேண்டாம்</td></tr>
+                <tr><td>9</td><td>Learn from losses</td><td>Loss-லிருந்து மட்டுமே கற்றுக்கொள்வோம்</td></tr>
+                <tr><td>10</td><td>Be patient</td><td>Trading-க்கு பொறுமை மிக முக்கியம்</td></tr>
+            </tbody></table>
+        </div>
+
+        <div class="card">
+            <div class="card-title">🎯 ஒரு நல்ல Trader-ன் மனநிலை</div>
+            <div class="grid-2">
+                <div class="psychology-box"><h3>🟢 நான் என்ன செய்வேன்?</h3><ul><li>✓ My plan-ஐ follow பண்ணுவேன்</li><li>✓ Stop loss use பண்ணுவேன்</li><li>✓ ஒரு நாளைக்கு max 3 trades</li><li>✓ Loss வந்தால் stop பண்ணுவேன்</li><li>✓ Profit வந்தால் book பண்ணுவேன்</li></ul></div>
+                <div class="psychology-box"><h3>🔴 நான் என்ன செய்யமாட்டேன்?</h3><ul><li>✗ Revenge trade மாட்டேன்</li><li>✗ FOMO-வில் வாங்கமாட்டேன்</li><li>✗ Leverage over use பண்ணமாட்டேன்</li><li>✗ Screen-ஐ 8 hours பார்க்கமாட்டேன்</li><li>✗ Greed-ஆக hold பண்ணமாட்டேன்</li></ul></div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-title">💎 உங்களுக்கான உறுதிமொழி (Daily Affirmation)</div>
+            <div class="psychology-box" style="text-align:center; font-size:18px;">
+                "நான் ஒரு Trader. என் plan-ஐ follow பண்ணுவேன்.<br>
+                Stop loss எனக்கு கேடயம். Target எனக்கு இலக்கு.<br>
+                Loss வந்தால் கற்றுக்கொள்வேன். Profit வந்தால் நன்றி சொல்வேன்.<br>
+                நாளை மறுபடியும் போராடுவேன்."<br><br>
+                <span class="badge-purple badge">🔥 இன்று ஒரு நாள் மட்டுமல்ல, நாளும் நான் முன்னேறுவேன்</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Tab 10: Daily Checklist -->
+    <div id="tab-checklist" class="tab-content">
+        <div class="card">
+            <div class="card-title">✅ Pre-Market Checklist (8:30 AM - 9:00 AM)</div>
+            <ul style="margin-left:30px;"><li>☐ Check global markets (DOW, NASDAQ, SGX Nifty)</li><li>☐ Check USD/INR and Crude oil</li><li>☐ Check FII/DII data</li><li>☐ Identify 3-4 stocks for watchlist</li><li>☐ Plan entry, target, stop loss for each</li><li>☐ Check stock news (results, deals, management change)</li></ul>
+        </div>
+        <div class="card">
+            <div class="card-title">✅ Market Hours Checklist (9:15 AM - 3:30 PM)</div>
+            <ul style="margin-left:30px;"><li>☐ Wait 15 minutes - only watch, no trade</li><li>☐ Confirm trend using 5/20 EMA</li><li>☐ Enter only with confirmation</li><li>☐ Keep stop loss updated</li><li>☐ Don't overtrade (max 3 trades)</li><li>☐ Take break between trades</li></ul>
+        </div>
+        <div class="card">
+            <div class="card-title">✅ Post-Market Checklist (3:30 PM - 5:00 PM)</div>
+            <ul style="margin-left:30px;"><li>☐ Review all trades</li><li>☐ Update trading journal</li><li>☐ Calculate P&L</li><li>☐ Identify mistakes</li><li>☐ Plan for tomorrow</li></ul>
+        </div>
+    </div>
+</div>
+
+<div class="footer">
+    ⚠️ Disclaimer: This is for educational purposes only. Trading involves risk. Consult your financial advisor before investing.<br>
+    📌 "Be disciplined, Be patient, Be profitable"
+</div>
+
+<script>
+    // Tab Switching
+    const buttons = document.querySelectorAll('.nav-btn');
+    const tabs = document.querySelectorAll('.tab-content');
+    buttons.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const tabId = btn.getAttribute('data-tab');
+            buttons.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            tabs.forEach(tab => tab.classList.remove('active'));
+            document.getElementById(`tab-${tabId}`).classList.add('active');
+        });
+    });
+
+    // Position Size Calculator
+    function calculatePosition() {
+        let balance = parseFloat(document.getElementById('accountBalance').value);
+        let riskPercent = parseFloat(document.getElementById('riskPercent').value);
+        let entry = parseFloat(document.getElementById('entryPrice').value);
+        let stop = parseFloat(document.getElementById('stopLoss').value);
+        let riskAmount = balance * (riskPercent / 100);
+        let lossPerShare = Math.abs(entry - stop);
+        let shares = Math.floor(riskAmount / lossPerShare);
+        let totalInvestment = shares * entry;
+        document.getElementById('positionResult').innerHTML = `Risk: ₹${riskAmount.toFixed(2)} | Shares: ${shares} | Investment: ₹${totalInvestment.toFixed(2)}`;
+    }
+
+    // Risk Reward Calculator
+    function calculateRR() {
+        let entry = parseFloat(document.getElementById('rrEntry').value);
+        let stop = parseFloat(document.getElementById('rrStop').value);
+        let target = parseFloat(document.getElementById('rrTarget').value);
+        let risk = Math.abs(entry - stop);
+        let reward = Math.abs(target - entry);
+        let ratio = (reward / risk).toFixed(2);
+        document.getElementById('rrResult').innerHTML = `Risk: ₹${risk.toFixed(2)} | Reward: ₹${reward.toFixed(2)} | Ratio: 1:${ratio}`;
+    }
+
+    // Profit Loss Calculator
+    function calculatePL() {
+        let qty = parseFloat(document.getElementById('plQty').value);
+        let buy = parseFloat(document.getElementById('plBuy').value);
+        let sell = parseFloat(document.getElementById('plSell').value);
+        let profit = (sell - buy) * qty;
+        let percent = ((sell - buy) / buy * 100).toFixed(2);
+        document.getElementById('plResult').innerHTML = `${profit >= 0 ? '✅ Profit' : '❌ Loss'}: ₹${Math.abs(profit).toFixed(2)} | ${percent}%`;
+        document.getElementById('plResult').style.background = profit >= 0 ? '#10b981' : '#ef4444';
+        setTimeout(() => document.getElementById('plResult').style.background = '#10b981', 2000);
+    }
+
+    // Initialize
+    calculatePosition();
+    calculateRR();
+    calculatePL();
+</script>
+</body>
+</html>
